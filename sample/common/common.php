@@ -115,6 +115,7 @@ function h($var)
 function pulldown_santi()
 {
 	print '<select name="santi">';
+	print '<option value=" "></option>';
 	print '<option value="秋田">秋田</option>';
 	print '<option value="新潟">新潟</option>';
 	print '<option value="青森">青森</option>';
@@ -124,6 +125,7 @@ function pulldown_santi()
 function pulldown_meigara()
 {
 	print '<select name="meigara">';
+	print '<option value=" "></option>';
 	print '<option value="あきたこまち">あきたこまち</option>';
 	print '<option value="コシヒカリ">コシヒカリ</option>';
 	print '<option value="青天の霹靂">青天の霹靂</option>';
@@ -132,6 +134,7 @@ function pulldown_meigara()
 function pulldown_nedan()
 {
 	print '<select name="nedan">';
+	print '<option value=" "></option>';
 	print '<option value="小">小</option>';
 	print '<option value="中">中</option>';
 	print '<option value="高">高</option>';
