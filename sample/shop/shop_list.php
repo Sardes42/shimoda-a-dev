@@ -21,7 +21,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title></title>
 </head>
 <body>
 <?php
@@ -98,6 +98,8 @@ $stmt->execute();
 
 $dbh=null;
 
+$_x=0;
+
   if($keyword=='')
    {
     while(true)
@@ -105,6 +107,9 @@ $dbh=null;
       $rec=$stmt->fetch(PDO::FETCH_ASSOC);
       if($rec==false)
       {
+      if($_x==0){
+				print '該当の商品はありません';	
+			}
         break;
       }
   if((strpos($rec['santi'],$santi)!==false)
@@ -116,6 +121,7 @@ $dbh=null;
 		print $rec['price'].'円';
 		print '</a>';
 		print '<br />';
+		$_x=1;
 		}
     }
   }
@@ -127,6 +133,9 @@ $dbh=null;
      $rec=$stmt->fetch(PDO::FETCH_ASSOC);
       if($rec==false)
       {
+		if($_x==0){
+			print '該当の商品はありません';			
+		}
        break;
       }
     if((strpos($rec['name'],$keyword)!==false)
@@ -139,6 +148,7 @@ $dbh=null;
       print $rec['price'].'円';
       print '</a>';
       print '<br />';
+      $_x=1;
      }
     }
   }
