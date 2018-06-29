@@ -21,22 +21,43 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title></title>
 </head>
 <body>
+<?php
+require_once('../common/common.php');
+?>
+
+
+<form method="post" action="shop_list.php">
+産地<?php pulldown_santi(); ?>&nbsp;
+ 銘柄<?php pulldown_meigara(); ?>&nbsp;
+ 値段<?php pulldown_nedan(); ?><br/>
+<input type="hidden" name="search" value="search"/><br />
+検索キーワードを入力
+<br/>
+<input type="search" name="keyword" value="">
+<input type="submit" value="検索">
+</form>
 
 <?php
 
 try
 {
 
+require_once('../common/common.php');
+
+print '商品一覧<br /><br />';
+
+if(isset($_POST['search'])==false)
+{
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,santi,meigara,nedan FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -88,8 +109,6 @@ while(true)
 $sales_num=count($s_code);
 
 $dbh=null;
-
-print '商品一覧<br /><br />';
 
 //集計
 for ($i = 0; $i < $sales_num; $i++){
@@ -200,12 +219,87 @@ while(true)
 	print $rec2['price'].'円';
 	print '</a>';
 	print '<br />';
+print '<a href="shop_cartlook.php">カートを見る</a><br />';
 
 }
+
+else{
+$keyword = $_POST['keyword'];
+$santi=$_POST['santi'];
+$meigara=$_POST['meigara'];
+$nedan=$_POST['nedan'];
+
+$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+$user='root';
+$password='';
+$dbh=new PDO($dsn,$user,$password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+$sql='SELECT code,name,price,santi,meigara,nedan FROM mst_product WHERE 1';
+$stmt=$dbh->prepare($sql);
+$stmt->execute();
+
+$dbh=null;
+
+$_x=0;
+
+  if($keyword=='')
+   {
+    while(true)
+    {
+      $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+      if($rec==false)
+      {
+      if($_x==0){
+				print '該当の商品はありません';	
+			}
+        break;
+      }
+  if((strpos($rec['santi'],$santi)!==false)
+  &&(strpos($rec['meigara'],$meigara)!==false)
+	&&(strpos($rec['nedan'],$nedan)!==false))
+		{
+		print '<a href="shop_product.php?procode='.$rec['code'].'">';
+		print $rec['name'].'─';
+		print $rec['price'].'円';
+		print '</a>';
+		print '<br />';
+		$_x=1;
+		}
+    }
+  }
+
+  else
+  {
+    while(true)
+    {
+     $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+      if($rec==false)
+      {
+		if($_x==0){
+			print '該当の商品はありません';			
+		}
+       break;
+      }
+    if((strpos($rec['name'],$keyword)!==false)
+    &&(strpos($rec['santi'],$santi)!==false)
+    &&(strpos($rec['meigara'],$meigara)!==false)
+    &&(strpos($rec['nedan'],$nedan)!==false))
+    {
+      print '<a href="shop_product.php?procode='.$rec['code'].'">';
+      print $rec['name'].'─';
+      print $rec['price'].'円';
+      print '</a>';
+      print '<br />';
+      $_x=1;
+     }
+    }
+  }
 
 print '<br />';
 print '<a href="shop_cartlook.php">カートを見る</a><br />';
 
+}
 }
 catch (Exception $e)
 {
@@ -214,5 +308,6 @@ catch (Exception $e)
 }
 
 ?>
+
 </body>
 </html>
