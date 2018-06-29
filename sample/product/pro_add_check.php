@@ -31,6 +31,9 @@ $post=sanitize($_POST);
 $pro_name=$post['name'];
 $pro_price=$post['price'];
 $pro_gazou=$_FILES['gazou'];
+$pro_santi=$post['santi'];
+$pro_meigara=$post['meigara'];
+$pro_nedan=$post['nedan'];
 
 if($pro_name=='')
 {
