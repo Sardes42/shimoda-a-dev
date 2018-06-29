@@ -51,7 +51,7 @@ print '商品一覧<br /><br />';
 
 if(isset($_POST['search'])==false)
 {
-$dsn='mysql:dbname=test;host=localhost;charset=utf8';
+$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
@@ -86,7 +86,7 @@ $santi=$_POST['santi'];
 $meigara=$_POST['meigara'];
 $nedan=$_POST['nedan'];
 
-$dsn='mysql:dbname=test;host=localhost;charset=utf8';
+$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
