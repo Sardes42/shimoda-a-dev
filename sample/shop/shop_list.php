@@ -30,13 +30,16 @@ else
 try
 {
 
+//$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+/*$dsn='mysql:dbname=shop;host=localhost;charset=utf8';*/
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price FROM mst_product WHERE 1';
+$sql='SELECT code,goodsname,price FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -52,7 +55,7 @@ while(true)
 		break;
 	}
 	print '<a href="shop_product.php?procode='.$rec['code'].'">';
-	print $rec['name'].'---';
+	print $rec['goodsname'].'---';
 	print $rec['price'].'円';
 	print '</a>';
 	print '<br />';

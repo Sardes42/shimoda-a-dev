@@ -1,16 +1,18 @@
 <?php
 session_start();
 session_regenerate_id(true);
-if(isset($_SESSION['login'])==false)
+if(isset($_SESSION['member_login'])==false)
 {
-	print 'ログインされていません。<br />';
-	print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
-	exit();
+	print 'ようこそゲスト様　';
+	print '<a href="member_login.html">会員ログイン</a><br />';
+	print '<br />';
 }
 else
 {
-	print $_SESSION['staff_name'];
-	print 'さんログイン中<br />';
+	print 'ようこそ';
+	print $_SESSION['member_name'];
+	print ' 様　';
+	print '<a href="member_logout.php">ログアウト</a><br />';
 	print '<br />';
 }
 ?>
@@ -19,10 +21,9 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登録完了</title>
+<title>XXX</title>
 </head>
 <body>
-
 <?php
 
 try
@@ -31,11 +32,9 @@ try
 require_once('../common/common.php');
 
 $post=sanitize($_POST);
-$pro_goodsname=$post['goodsname'];
-$pro_price=$post['price'];
-$pro_gazou_name=$post['gazou_name'];
-$pro_syousai=$post['syousai'];
-
+$pro_name=$post['name'];
+$pro_score=$post['score'];
+$pro_comment=$post['comment'];
 
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -43,17 +42,16 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='INSERT INTO mst_product(goodsname,price,gazou,syousai) VALUES (?,?,?,?)';
+$sql='INSERT INTO mst_review(name,score,comment) VALUES (?,?,?)';
 $stmt=$dbh->prepare($sql);
-$data[]=$pro_goodsname;
-$data[]=$pro_price;
-$data[]=$pro_gazou_name;
-$data[]=$pro_syousai;
+$data[]=$pro_name;
+$data[]=$pro_score;
+$data[]=$pro_comment;
 $stmt->execute($data);
 
 $dbh=null;
 
-print $pro_goodsname;
+print $pro_name;
 print 'を追加しました。<br />';
 
 }
@@ -65,7 +63,6 @@ catch(Exception$e)
 
 ?>
 
-<a href="pro_list.php">戻る</a>
-
+<a href="shop_product.php">戻る</a>
 </body>
 </html>

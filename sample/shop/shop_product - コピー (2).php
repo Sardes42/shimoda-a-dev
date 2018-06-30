@@ -38,12 +38,12 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT goodsname,price,gazou,syousai FROM mst_product WHERE code=?';
+$sql='SELECT goodsname,price,gazou FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
 
-$sql2='SELECT name,score,comment FROM mst_review WHERE code=?';
+$sql2='SELECT name,score,comment from 商品データベース where code=?';
 $stmt2=$dbh->prepare($sql2);
 $stmt2->execute($data);
 
@@ -51,7 +51,6 @@ $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 $pro_goodsname=$rec['goodsname'];
 $pro_price=$rec['price'];
 $pro_gazou_name=$rec['gazou'];
-$pro_syousai=$rec['syousai'];
 
 $dbh=null;
 
@@ -87,10 +86,8 @@ catch(Exception $e)
 <br />
 <?php print $disp_gazou; ?>
 <br />
-詳細説明<br />
-<?php print $pro_syousai; ?>
-<br ?>
-<?php print '<a href="shop_add.php?procode='.$pro_code.'">レビューを入力する</a>' ?>
+<br />
+<?php print '<a href="add.php?procode='.$pro_code.'">レビューを入力する</a>' ?>
 <br />
 レビュー一覧<br/>
 <?php
@@ -101,11 +98,11 @@ while(true)
 {
 	break;
 }
-print '●';
-	print $rec2['name'].'---';
-	print $rec2['score'].'点<br/>';
-	print $rec2['comment'].'<br/>';
-	print '<br />';
+print '.';
+print $rec2['name'].'---';
+print $rec2['score'].'点<br/>';
+print $rec2['comment'].'<br/>';
+print '<br/>';
 }
 ?>
 <form>
