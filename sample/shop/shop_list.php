@@ -197,15 +197,6 @@ array(),
 array(),
 array());
 
-
-
-
-
-
-
-
-
-
 //商品一覧
 while(true)
 {
@@ -222,7 +213,7 @@ while(true)
 print '<a href="shop_cartlook.php">カートを見る</a><br />';
 
 }
-
+}
 else{
 $keyword = $_POST['keyword'];
 $santi=$_POST['santi'];
