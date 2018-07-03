@@ -71,7 +71,40 @@ if($pro_gazou['size']>0)
 	}
 }
 
-if($pro_name=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_gazou['size']>1000000)
+ if($pro_santi=='')
+{
+	print '産地が選択されていません。<br />';
+}
+else
+{
+	print '産地:';
+	print $pro_santi;
+	print '<br />';
+}
+
+if($pro_meigara=='')
+{
+	print '銘柄が選択されていません。<br />';
+}
+else
+{
+	print '銘柄:';
+	print $pro_meigara;
+	print '<br />';
+}
+
+if($pro_nedan=='')
+{
+	print '値段が選択されていません。<br />';
+}
+else
+{
+	print '値段:';
+	print $pro_nedan;
+	print '<br />';
+}
+if($pro_name=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_gazou['size']>1000000
+   || $pro_santi=='' || $pro_meigara=='' || $pro_nedan=='')
 {
 	print '<form>';
 	print '<input type="button" onclick="history.back()" value="戻る">';
@@ -84,6 +117,9 @@ else
 	print '<input type="hidden" name="name" value="'.$pro_name.'">';
 	print '<input type="hidden" name="price" value="'.$pro_price.'">';
 	print '<input type="hidden" name="gazou_name" value="'.$pro_gazou['name'] .'">';
+	print '<input type="hidden" name="santi" value="'.$pro_santi.'">';
+	print '<input type="hidden" name="meigara" value="'.$pro_meigara.'">';
+	print '<input type="hidden" name="nedan" value="'.$pro_nedan.'">';
 	print '<br />';
 	print '<input type="button" onclick="history.back()" value="戻る">';
 	print '<input type="submit" value="ＯＫ">';
