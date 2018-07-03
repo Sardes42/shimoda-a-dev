@@ -22,6 +22,9 @@ else
 <title>商品追加</title>
 </head>
 <body>
+<?php
+require_once('../common/common.php');
+?>
 
 商品追加<br />
 <br />
@@ -32,9 +35,17 @@ else
 <input type="text" name="price" style="width:50px"><br />
 画像を選んでください。<br />
 <input type="file" name="gazou" style="width:400px"><br />
+
 詳細説明を入力してください。<br />
 <input type="text" name="syousai" style="width:400px"><br />
 <br />
+
+プルダウン情報を入力してください。<br/>
+産地<?php pulldown_santi(); ?>&nbsp;
+ 銘柄<?php pulldown_meigara(); ?>&nbsp;
+ 値段<?php pulldown_nedan(); ?><br/>
+ <br />
+
 <input type="button" onclick="history.back()" value="戻る">
 <input type="submit" value="ＯＫ">
 </form>

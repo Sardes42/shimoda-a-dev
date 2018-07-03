@@ -35,7 +35,9 @@ $pro_name=$post['name'];
 $pro_price=$post['price'];
 $pro_gazou_name=$post['gazou_name'];
 $pro_syousai=$post['syousai'];
-
+$pro_santi=$post['santi'];
+$pro_meigara=$post['meigara'];
+$pro_nedan=$post['nedan'];
 
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -43,12 +45,16 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='INSERT INTO mst_product(name,price,gazou,syousai) VALUES (?,?,?,?)';
+
+$sql='INSERT INTO mst_product(name,price,gazou,syousai,santi,meigara,nedan) VALUES (?,?,?,?,?,?,?)';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
 $data[]=$pro_gazou_name;
 $data[]=$pro_syousai;
+$data[]=$pro_santi;
+$data[]=$pro_meigara;
+$data[]=$pro_nedan;
 $stmt->execute($data);
 
 $dbh=null;
