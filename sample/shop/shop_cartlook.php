@@ -57,14 +57,14 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 foreach($cart as $key=>$val)
 {
-	$sql='SELECT code,goodsname,price,gazou FROM mst_product WHERE code=?';
+	$sql='SELECT code,name,price,gazou FROM mst_product WHERE code=?';
 	$stmt=$dbh->prepare($sql);
 	$data[0]=$val;
 	$stmt->execute($data);
 
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
 
-	$pro_goodsname[]=$rec['goodsname'];
+	$pro_name[]=$rec['name'];
 	$pro_price[]=$rec['price'];
 	if($rec['gazou']=='')
 	{
@@ -102,7 +102,7 @@ catch(Exception $e)
 	{
 ?>
 <tr>
-	<td><?php print $pro_goodsname[$i]; ?></td>
+	<td><?php print $pro_name[$i]; ?></td>
 	<td><?php print $pro_gazou[$i]; ?></td>
 	<td><?php print $pro_price[$i]; ?>円</td>
 	<td><input type="text" name="kazu<?php print $i; ?>" value="<?php print $kazu[$i]; ?>"></td>

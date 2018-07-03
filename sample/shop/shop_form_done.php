@@ -56,20 +56,20 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 for($i=0;$i<$max;$i++)
 {
-	$sql='SELECT goodsname,price FROM mst_product WHERE code=?';
+	$sql='SELECT name,price FROM mst_product WHERE code=?';
 	$stmt=$dbh->prepare($sql);
 	$data[0]=$cart[$i];
 	$stmt->execute($data);
 
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
 
-	$goodsname=$rec['goodsname'];
+	$name=$rec['name'];
 	$price=$rec['price'];
 	$kakaku[]=$price;
 	$suryo=$kazu[$i];
 	$shokei=$price*$suryo;
 
-	$honbun.=$goodsname.' ';
+	$honbun.=$name.' ';
 	$honbun.=$price.'円 x ';
 	$honbun.=$suryo.'個 = ';
 	$honbun.=$shokei."円\n";

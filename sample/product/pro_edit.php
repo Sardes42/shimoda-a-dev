@@ -36,13 +36,13 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT goodsname,price,gazou,syousai FROM mst_product WHERE code=?';
+$sql='SELECT name,price,gazou,syousai FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
 
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
-$pro_goodsname=$rec['goodsname'];
+$pro_name=$rec['name'];
 $pro_price=$rec['price'];
 $pro_gazou_name_old=$rec['gazou'];
 $pro_syousai=$rec['syousai'];
@@ -77,7 +77,7 @@ catch(Exception $e)
 <input type="hidden" name="code" value="<?php print $pro_code; ?>">
 <input type="hidden" name="gazou_name_old" value="<?php print $pro_gazou_name_old; ?>">
 商品名<br />
-<input type="text" name="goodsname" style="width:200px" value="<?php print $pro_goodsname; ?>"><br />
+<input type="text" name="name" style="width:200px" value="<?php print $pro_name; ?>"><br />
 価格<br />
 <input type="text" name="price" style="width:50px" value="<?php print $pro_price; ?>">円<br />
 <br />

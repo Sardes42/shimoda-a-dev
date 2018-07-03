@@ -32,7 +32,7 @@ require_once('../common/common.php');
 
 $post=sanitize($_POST);
 $pro_code=$post['code'];
-$pro_goodsname=$post['goodsname'];
+$pro_name=$post['name'];
 $pro_price=$post['price'];
 $pro_gazou_name_old=$_POST['gazou_name_old'];
 $pro_gazou_name=$_POST['gazou_name'];
@@ -44,9 +44,9 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='UPDATE mst_product SET goodsname=?,price=?,gazou=?,syousai=? WHERE code=?';
+$sql='UPDATE mst_product SET name=?,price=?,gazou=?,syousai=? WHERE code=?';
 $stmt=$dbh->prepare($sql);
-$data[]=$pro_goodsname;
+$data[]=$pro_name;
 $data[]=$pro_price;
 $data[]=$pro_gazou_name;
 $data[]=$pro_code;

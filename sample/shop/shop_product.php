@@ -38,17 +38,17 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT goodsname,price,gazou,syousai FROM mst_product WHERE code=?';
+$sql='SELECT name,price,gazou,syousai FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
 
-$sql2='SELECT name,score,comment FROM mst_review WHERE code=?';
+$sql2='SELECT name,score,comment FROM dat_review WHERE code=?';
 $stmt2=$dbh->prepare($sql2);
 $stmt2->execute($data);
 
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
-$pro_goodsname=$rec['goodsname'];
+$pro_name=$rec['name'];
 $pro_price=$rec['price'];
 $pro_gazou_name=$rec['gazou'];
 $pro_syousai=$rec['syousai'];
@@ -80,7 +80,7 @@ catch(Exception $e)
 <?php print $pro_code; ?>
 <br />
 商品名<br />
-<?php print $pro_goodsname; ?>
+<?php print $pro_name; ?>
 <br />
 価格<br />
 <?php print $pro_price; ?>円

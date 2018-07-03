@@ -1,18 +1,16 @@
 <?php
 session_start();
 session_regenerate_id(true);
-if(isset($_SESSION['member_login'])==false)
+if(isset($_SESSION['login'])==false)
 {
-	print 'ようこそゲスト様　';
-	print '<a href="member_login.html">会員ログイン</a><br />';
-	print '<br />';
+	print 'ログインされていません。<br />';
+	print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+	exit();
 }
 else
 {
-	print 'ようこそ';
-	print $_SESSION['member_name'];
-	print ' 様　';
-	print '<a href="member_logout.php">ログアウト</a><br />';
+	print $_SESSION['staff_name'];
+	print 'さんログイン中<br />';
 	print '<br />';
 }
 ?>
@@ -21,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>商品一覧</title>
 </head>
 <body>
 
@@ -30,10 +28,7 @@ else
 try
 {
 
-//$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-/*$dsn='mysql:dbname=shop;host=localhost;charset=utf8';*/
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
@@ -47,6 +42,7 @@ $dbh=null;
 
 print '商品一覧<br /><br />';
 
+print '<form method="post" action="pro_branch.php">';
 while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -54,15 +50,17 @@ while(true)
 	{
 		break;
 	}
-	print '<a href="shop_product.php?procode='.$rec['code'].'">';
+	print '<input type="radio" name="procode" value="'.$rec['code']. '">';
 	print $rec['name'].'---';
 	print $rec['price'].'円';
-	print '</a>';
 	print '<br />';
 }
-
-print '<br />';
-print '<a href="shop_cartlook.php">カートを見る</a><br />';
+print '<input type="submit" name="disp" value="参照">';
+print '<input type="submit" name="add" value="追加">';
+print '<input type="submit" name="edit" value="修正">';
+print '<input type="submit" name="delete" value="削除">';
+print '<input type="submit" name="study" value="学習">';
+print '</form>';
 
 }
 catch (Exception $e)
@@ -72,6 +70,9 @@ catch (Exception $e)
 }
 
 ?>
+
+<br />
+<a href="../staff_login/staff_top.php">トップメニューへ</a><br />
 
 </body>
 </html>

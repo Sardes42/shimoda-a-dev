@@ -34,7 +34,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,goodsname,price FROM mst_product WHERE 1';
+$sql='SELECT code,name,price FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -51,15 +51,15 @@ while(true)
 		break;
 	}
 	print '<input type="radio" name="procode" value="'.$rec['code']. '">';
-	print $rec['goodsname'].'---';
+	print $rec['name'].'---';
 	print $rec['price'].'円';
 	print '<br />';
 }
 print '<input type="submit" name="disp" value="参照">';
 print '<input type="submit" name="add" value="追加">';
-print '<input type="submit" name="edit" value="修正">';
+
 print '<input type="submit" name="delete" value="削除">';
-print '<input type="submit" name="study" value="学習">';
+
 print '</form>';
 
 }

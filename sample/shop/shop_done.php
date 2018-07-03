@@ -26,7 +26,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='INSERT INTO mst_review(code,name,score,comment) VALUES (?,?,?,?)';
+$sql='INSERT INTO dat_review(code,name,score,comment) VALUES (?,?,?,?)';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $data[]=$pro_name;

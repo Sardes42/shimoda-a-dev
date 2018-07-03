@@ -29,20 +29,20 @@ require_once('../common/common.php');
 
 $post=sanitize($_POST);
 $pro_code=$post['code'];
-$pro_goodsname=$post['goodsname'];
+$pro_name=$post['name'];
 $pro_price=$post['price'];
 $pro_gazou_name_old=$post['gazou_name_old'];
 $pro_gazou=$_FILES['gazou'];
 $pro_syousai=$post['syousai'];
 
-if($pro_goodsname=='')
+if($pro_name=='')
 {
 	print '商品名が入力されていません。<br />';
 }
 else
 {
 	print '商品名:';
-	print $pro_goodsname;
+	print $pro_name;
 	print '<br />';
 }
 
@@ -80,7 +80,7 @@ else
 	print $pro_syousai;
 	print '<br />';
 }
-if($pro_goodsname=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_gazou['size']>1000000 || $pro_syousai=='')
+if($pro_name=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_gazou['size']>1000000 || $pro_syousai=='')
 {
 	print '<form>';
 	print '<input type="button" onclick="history.back()" value="戻る">';
@@ -91,7 +91,7 @@ else
 	print '上記のように変更します。<br />';
 	print '<form method="post" action="pro_edit_done.php">';
 	print '<input type="hidden" name="code" value="'.$pro_code.'">';
-	print '<input type="hidden" name="goodsname" value="'.$pro_goodsname.'">';
+	print '<input type="hidden" name="name" value="'.$pro_name.'">';
 	print '<input type="hidden" name="price" value="'.$pro_price.'">';
 	print '<input type="hidden" name="gazou_name_old" value="'.$pro_gazou_name_old.'">';
 	print '<input type="hidden" name="gazou_name" value="'.$pro_gazou['name'].'">';
