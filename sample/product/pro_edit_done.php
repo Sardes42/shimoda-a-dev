@@ -36,6 +36,7 @@ $pro_name=$post['name'];
 $pro_price=$post['price'];
 $pro_gazou_name_old=$_POST['gazou_name_old'];
 $pro_gazou_name=$_POST['gazou_name'];
+$pro_syousai=$post['syousai'];
 
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -43,13 +44,14 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='UPDATE mst_product SET name=?,price=?,gazou=? WHERE code=?';
+$sql='UPDATE mst_product SET name=?,price=?,gazou=?,syousai=? WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
 $data[]=$pro_gazou_name;
 $data[]=$pro_code;
 $stmt->execute($data);
+$data[]=$pro_syousai;
 
 $dbh=null;
 

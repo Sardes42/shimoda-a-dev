@@ -36,7 +36,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name,price,gazou FROM mst_product WHERE code=?';
+$sql='SELECT name,price,gazou,syousai FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
@@ -45,6 +45,7 @@ $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 $pro_name=$rec['name'];
 $pro_price=$rec['price'];
 $pro_gazou_name_old=$rec['gazou'];
+$pro_syousai=$rec['syousai'];
 
 $dbh=null;
 
@@ -85,6 +86,8 @@ catch(Exception $e)
 画像を選んでください。<br />
 <input type="file" name="gazou" style="width:400px"><br />
 <br />
+詳細説明<br />
+<input type="text" name="syousai" style="width:200px" value="<?php print $pro_syousai; ?>"><br />
 <input type="button" onclick="history.back()" value="戻る">
 <input type="submit" value="ＯＫ">
 </form>

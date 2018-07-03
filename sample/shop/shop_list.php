@@ -52,6 +52,7 @@ print '商品一覧<br /><br />';
 if(isset($_POST['search'])==false)
 {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);

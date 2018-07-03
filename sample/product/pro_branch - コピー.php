@@ -51,16 +51,4 @@ if(isset($_POST['delete'])==true)
 	exit();
 }
 
-if(isset($_POST['study'])==true)
-{
-	if(isset($_POST['procode'])==false)
-	{
-		header('Location:pro_ng.php');
-		exit();
-	}
-	$pro_code=$_POST['procode'];
-	header('Location:pro_study1.php?procode='.$pro_code);
-	exit();
-}
-
 ?>
