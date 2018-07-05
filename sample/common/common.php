@@ -119,6 +119,8 @@ function pulldown_santi()
 	print '<option value=" 秋田">秋田</option>';
 	print '<option value=" 新潟">新潟</option>';
 	print '<option value=" 青森">青森</option>';
+	print '<option value=" 山形">山形</option>';
+	print '<option value=" 北海道">北海道</option>';
 	print '</select>';
 }
 
@@ -128,7 +130,9 @@ function pulldown_meigara()
 	print '<option value=" "></option>';
 	print '<option value=" あきたこまち">あきたこまち</option>';
 	print '<option value=" コシヒカリ">コシヒカリ</option>';
-	print '<option value=" 青天の霹靂">青天の霹靂</option>';
+	print '<option value=" 晴天の霹靂">晴天の霹靂</option>';
+	print '<option value=" つや姫">つや姫</option>';
+	print '<option value=" ななつぼし">ななつぼし</option>';
 	print '</select>';
 }
 function pulldown_nedan()
