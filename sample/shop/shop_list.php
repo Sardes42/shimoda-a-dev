@@ -89,7 +89,7 @@ $sales_num=count($s_code);
 
 $dbh=null;
 
-print '商品一覧<br /><br />';
+
 
 //集計
 for ($i = 0; $i < $sales_num; $i++){
@@ -177,10 +177,6 @@ array(),
 array(),
 array(),
 array());
-
-
-
-
 
 
 
