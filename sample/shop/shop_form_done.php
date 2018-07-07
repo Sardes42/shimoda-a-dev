@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>注文完了</title>
 </head>
 <body>
 

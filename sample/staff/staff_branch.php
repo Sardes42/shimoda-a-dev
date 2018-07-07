@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>お疲れ様です。</title>
 </head>
 <body>
 <?php
