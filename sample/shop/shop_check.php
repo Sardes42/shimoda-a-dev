@@ -21,7 +21,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品追加確認</title>
+<title>レビュー追加確認</title>
 </head>
 <body>
 <?php

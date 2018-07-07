@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title> ろくまる農園</title>
+<title>確認</title>
 </head>
 <body>
 
