@@ -24,7 +24,7 @@ else
 </head>
 <body>
 <?php
-
+require_once('../common/common.php');
 try
 {
 $pro_code=$_GET['procode'];
@@ -35,11 +35,21 @@ $pro_name=$post['name'];
 $pro_score=$post['score'];
 $pro_comment=$post['comment'];
 
-$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-$user='root';
-$password='';
-$dbh=new PDO($dsn,$user,$password);
-$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+if (DEBUG) {
+	$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+	$user='root';
+	$password='';
+	$dbh=new PDO($dsn,$user,$password);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	}
+	else{
+	$dbServer = '127.0.0.1';
+	$dbUser = $_SERVER['MYSQL_USER'];
+	$dbPass = $_SERVER['MYSQL_PASSWORD'];
+	$dbName = $_SERVER['MYSQL_DB'];
+	$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
+	$dbh = new PDO($dsn, $dbUser, $dbPass);
+	}
 
 $sql='INSERT INTO dat_review(id,name,score,comment) VALUES (?,?,?,?)';
 $stmt=$dbh->prepare($sql);
