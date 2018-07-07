@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>入力情報確認</title>
 </head>
 <body>
 

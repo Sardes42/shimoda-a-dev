@@ -21,7 +21,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>商品検索</title>
 </head>
 <body>
 <?php
