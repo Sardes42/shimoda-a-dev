@@ -131,11 +131,14 @@ for ($i = 0; $i < $sales_num; $i++){
 
 //ソート
 $array01 = $p_sum;
-arsort($array01);
+arsort($array01);?>
+<table>
+<?php
 
 //売上1位
 $key=key($array01);
-print '<a href="shop_product.php?procode='.$p_code[$key].'">';
+print '<tr>
+<td><a href="shop_product.php?procode='.$p_code[$key].'">';
 print '<br />';
 if($p_gazou[$key]=='')
 {
@@ -143,7 +146,8 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<table>
+	<tr><td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -151,7 +155,8 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上1位！';
-print '<br /><br />';
+print '<br /><br /></td></td>';
+
 
 //売上2位
 next($array01);
@@ -164,7 +169,7 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -172,7 +177,7 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上2位！';
-print '<br /><br />';
+print '<br /><br /></td>';
 
 //売上3位
 next($array01);
@@ -185,7 +190,7 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -193,9 +198,12 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上3位！';
-print '<br /><br />';
+print '<br /><br /></td>';
 
-
+?>
+</tr>
+</table>
+<?php
  //TABLEの横幅（ピクセル）
 define('TABLE_WIDTH', 600);
 //2次元配列
@@ -338,11 +346,14 @@ for ($i = 0; $i < $sales_num; $i++){
 
 //ソート
 $array01 = $p_sum;
-arsort($array01);
+arsort($array01);?>
+<table>
+<?php
 
 //売上1位
 $key=key($array01);
-print '<a href="shop_product.php?procode='.$p_code[$key].'">';
+print '<tr>
+<td><a href="shop_product.php?procode='.$p_code[$key].'">';
 print '<br />';
 if($p_gazou[$key]=='')
 {
@@ -350,7 +361,8 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<table>
+	<tr><td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -358,7 +370,8 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上1位！';
-print '<br /><br />';
+print '<br /><br /></td></td>';
+
 
 //売上2位
 next($array01);
@@ -371,7 +384,7 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -379,7 +392,7 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上2位！';
-print '<br /><br />';
+print '<br /><br /></td>';
 
 //売上3位
 next($array01);
@@ -392,7 +405,7 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -400,9 +413,12 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上3位！';
-print '<br /><br />';
+print '<br /><br /></td>';
 
-
+?>
+</tr>
+</table>
+<?php
  //TABLEの横幅（ピクセル）
 define('TABLE_WIDTH', 600);
 //2次元配列
@@ -523,11 +539,14 @@ for ($i = 0; $i < $sales_num; $i++){
 
 //ソート
 $array01 = $p_sum;
-arsort($array01);
+arsort($array01);?>
+<table>
+<?php
 
 //売上1位
 $key=key($array01);
-print '<a href="shop_product.php?procode='.$p_code[$key].'">';
+print '<tr>
+<td><a href="shop_product.php?procode='.$p_code[$key].'">';
 print '<br />';
 if($p_gazou[$key]=='')
 {
@@ -535,7 +554,8 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<table>
+	<tr><td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -543,7 +563,8 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上1位！';
-print '<br /><br />';
+print '<br /><br /></td></td>';
+
 
 //売上2位
 next($array01);
@@ -556,7 +577,7 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -564,7 +585,7 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上2位！';
-print '<br /><br />';
+print '<br /><br /></td>';
 
 //売上3位
 next($array01);
@@ -577,7 +598,7 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
 }
         print $disp_gazou;
         print '</a>';
@@ -585,9 +606,12 @@ else
 print $p_name[$key].'';
 print '<br />';
 print '売上3位！';
-print '<br /><br />';
+print '<br /><br /></td>';
 
-
+?>
+</tr>
+</table>
+<?php
  //TABLEの横幅（ピクセル）
 define('TABLE_WIDTH', 600);
 //2次元配列
