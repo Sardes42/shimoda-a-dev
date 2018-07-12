@@ -149,6 +149,7 @@ else
         </td>
         </table>
         <?php print '<br /><br />'; 
+
 //売上2位
 next($array01);
 ?>
@@ -171,7 +172,6 @@ else
          print $disp_gazou.'</a><br />'; ?></tr><td>
          <tr><td><?php print $p_name[$key].'';?> </tr><td>
          <tr><td><?php print '売上2位！';?></tr></td>
-         
         </td>
         </table>
        
