@@ -567,7 +567,6 @@ $array01 = $p_sum;
 arsort($array01);?>
 <table>
 <?php
-
 //売上1位
 $key=key($array01);
 print '<tr>
