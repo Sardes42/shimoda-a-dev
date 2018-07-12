@@ -122,14 +122,17 @@ for ($i = 0; $i < $sales_num; $i++){
 
 //ソート
 $array01 = $p_sum;
-arsort($array01);?>
+arsort($array01);
+?>
 <table>
-<?php
-
+<tr>
+<td>
+<table>
+<tr><td>
+  <?php
 //売上1位
 $key=key($array01);
-print '<tr>
-<td><a href="shop_product.php?procode='.$p_code[$key].'">';
+print '<a href="shop_product.php?procode='.$p_code[$key].'">';
 print '<br />';
 if($p_gazou[$key]=='')
 {
@@ -137,20 +140,23 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<table>
-	<tr><td><img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
 }
-        print $disp_gazou;
-        print '</a>';
-        print '<br />';
-print $p_name[$key].'';
-print '<br />';
-print '売上1位！';
-print '<br /><br /></td></td>';
-
-
+         print $disp_gazou.'</a><br />'; ?></tr><td>
+         <tr><td><?php print $p_name[$key].'';?> </tr><td>
+         <tr><td><?php print '売上1位！';?></tr></td>
+         
+        </td>
+        </table>
+        <?php print '<br /><br />'; 
 //売上2位
 next($array01);
+?>
+<td>
+<table>
+<tr><td>
+  <?php
+//売上2位
 $key=key($array01);
 print '<a href="shop_product.php?procode='.$p_code[$key].'">';
 print '<br />';
@@ -160,18 +166,24 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
 }
-        print $disp_gazou;
-        print '</a>';
-        print '<br />';
-print $p_name[$key].'';
-print '<br />';
-print '売上2位！';
-print '<br /><br /></td>';
-
+         print $disp_gazou.'</a><br />'; ?></tr><td>
+         <tr><td><?php print $p_name[$key].'';?> </tr><td>
+         <tr><td><?php print '売上2位！';?></tr></td>
+         
+        </td>
+        </table>
+       
+        <?php print '<br /><br />';        
 //売上3位
 next($array01);
+?>
+<td>
+<table>
+<tr><td>
+  <?php
+//売上3位
 $key=key($array01);
 print '<a href="shop_product.php?procode='.$p_code[$key].'">';
 print '<br />';
@@ -181,19 +193,20 @@ if($p_gazou[$key]=='')
 }
 else
 {
-	$disp_gazou='<td><img src="../product/gazou/'.$p_gazou[$key].'">';
+	$disp_gazou='<img src="../product/gazou/'.$p_gazou[$key].'">';
 }
-        print $disp_gazou;
-        print '</a>';
-        print '<br />';
-print $p_name[$key].'';
-print '<br />';
-print '売上3位！';
-print '<br /><br /></td>';
+         print $disp_gazou.'</a><br />'; ?></tr><td>
+         <tr><td><?php print $p_name[$key].'';?> </tr><td>
+         <tr><td><?php print '売上3位！';?></tr></td>
+         
+        </td>
+        </table>
+        <?php print '<br /><br />';  ?>
+        </td>
+        </tr>
+        </table>
+<br /><br /> 
 
-?>
-</tr>
-</table>
 <?php
  //TABLEの横幅（ピクセル）
 define('TABLE_WIDTH', 600);
