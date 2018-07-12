@@ -29,16 +29,7 @@ require_once('../common/common.php');
 ?>
 
 
-<form method="post" action="shop_list.php">
-産地<?php pulldown_santi(); ?>&nbsp;
- 銘柄<?php pulldown_meigara(); ?>&nbsp;
- 値段<?php pulldown_nedan(); ?><br/>
-<input type="hidden" name="search" value="search"/><br />
-検索キーワードを入力
-<br/>
-<input type="search" name="keyword" value="">
-<input type="submit" value="検索">
-</form>
+
 
 <?php
 
@@ -47,7 +38,7 @@ try
 
 require_once('../common/common.php');
 
-print '商品一覧<br /><br />';
+print '商品ランキング<br /><br />';
 
 if(isset($_POST['search'])==false)
 {
@@ -216,6 +207,24 @@ array(),
 array());
 
 //商品一覧
+?>
+
+<form method="post" action="shop_list.php">
+産地<?php pulldown_santi(); ?>&nbsp;
+ 銘柄<?php pulldown_meigara(); ?>&nbsp;
+ 値段<?php pulldown_nedan(); ?><br/>
+<input type="hidden" name="search" value="search"/><br />
+検索キーワードを入力
+<br/>
+<input type="search" name="keyword" value=""><br/>
+<br/>
+<input type="submit" value="組み合わせ検索">
+</form>
+
+<?php
+print '商品一覧';
+print '<br/>';
+print '<br/>';
 while(true)
 {
 	$rec2=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -232,6 +241,7 @@ while(true)
 print '<br/>';
 print '<a href="shop_cartlook.php">カートを見る</a><br />';
 }
+
 else{
 $keyword = $_POST['keyword'];
 $santi=$_POST['santi'];
@@ -429,7 +439,22 @@ array(),
 array(),
 array(),
 array());
-
+?>
+<form method="post" action="shop_list.php">
+産地<?php pulldown_santi(); ?>&nbsp;
+ 銘柄<?php pulldown_meigara(); ?>&nbsp;
+ 値段<?php pulldown_nedan(); ?><br/>
+<input type="hidden" name="search" value="search"/><br />
+検索キーワードを入力
+<br/>
+<input type="search" name="keyword" value=""><br/>
+<br/>
+<input type="submit" value="組み合わせ検索">
+</form>
+<?php
+print '商品一覧';
+print '<br/>';
+print '<br/>';
     while(true)
     {
       $rec=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -622,7 +647,22 @@ array(),
 array(),
 array(),
 array());
-
+?>
+<form method="post" action="shop_list.php">
+産地<?php pulldown_santi(); ?>&nbsp;
+ 銘柄<?php pulldown_meigara(); ?>&nbsp;
+ 値段<?php pulldown_nedan(); ?><br/>
+<input type="hidden" name="search" value="search"/><br />
+検索キーワードを入力
+<br/>
+<input type="search" name="keyword" value=""><br/>
+<br/>
+<input type="submit" value="組み合わせ検索">
+</form>
+<?php
+print '商品一覧';
+print '<br/>';
+print '<br/>';
     while(true)
     {
      $rec=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -660,6 +700,7 @@ catch (Exception $e)
 }
 
 ?>
+
 
 </body>
 </html>
