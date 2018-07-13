@@ -435,6 +435,21 @@ array());
 print '商品一覧';
 print '<br/>';
 print '<br/>';
+print '使用した組み合わせ条件 ';
+print '<br/>';
+print '産地:';
+print $santi;
+print '，　';
+print '銘柄:';
+print $meigara;
+print '，　';
+print '値段:';
+print $nedan ;
+print '，　';
+print '検索キーワード:';
+print $keyword;
+print '<br/>';
+print '<br/>';
     while(true)
     {
       $rec=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -631,6 +646,21 @@ array());
 </form>
 <?php
 print '商品一覧';
+print '<br/>';
+print '<br/>';
+print '使用した組み合わせ条件 ';
+print '<br/>';
+print '産地:';
+print $santi;
+print '，　';
+print '銘柄:';
+print $meigara;
+print '，　';
+print '値段:';
+print $nedan ;
+print '，　';
+print '検索キーワード:';
+print $keyword;
 print '<br/>';
 print '<br/>';
     while(true)
