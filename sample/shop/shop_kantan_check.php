@@ -13,7 +13,7 @@ if(isset($_SESSION['member_login'])==false)
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>お客様情報確認</title>
 </head>
 <body>
 

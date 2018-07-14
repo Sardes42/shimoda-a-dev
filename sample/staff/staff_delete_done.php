@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品削除完了</title>
+<title>削除完了</title>
 </head>
 <body>
 
