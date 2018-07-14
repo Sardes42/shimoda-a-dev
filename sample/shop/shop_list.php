@@ -21,6 +21,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="size.css" rel="stylesheet" type="text/css">
 <title>商品検索</title>
 </head>
 <body>
