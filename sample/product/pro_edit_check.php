@@ -70,6 +70,11 @@ if($pro_gazou['size']>0)
 		print '<br />';
 	}
 }
+else
+{
+		print '<img src="./gazou/'.$pro_gazou_name_old.'">';
+		print '<br />';
+}
 if($pro_syousai=='')
 {
 	print '詳細説明が入力されていません。<br />';

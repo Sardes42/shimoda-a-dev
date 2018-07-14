@@ -162,17 +162,21 @@ arsort($array01);
 
          print $disp_gazou.'</a><br />'; ?></tr><td>
          <tr><td><?php print $p_name[$key].'';?></tr><td>
-         <tr><td><?php print '人気No.';
+         <tr><td><?php print '売上';
          if($j==1){
          print_r($j);}elseif($value==$value1&&$j==2){
          print '1';}elseif($value==$value2&&$j==3){
          print '1';}elseif($value1==$value2){
          print '2';}else{
          print_r($j);}
-         print '！';?></tr><td>
-         <tr><td><?php if($value1==0&&$value2==0){
+         print '位！';?></tr><td>
+         <tr><td><?php 
+         print '(注文数:';
+         if($value1==0&&$value2==0){
          print $value;}elseif($value2==0){
-         print $value1;}else{print $value2;}?></tr><td>
+         print $value1;}else{print $value2;}
+         print ')';
+         ?></tr><td>
          </td>
         </table> 
         <td>
@@ -386,17 +390,22 @@ arsort($array01);
 
          print $disp_gazou.'</a><br />'; ?></tr><td>
          <tr><td><?php print $p_name[$key].'';?></tr><td>
-         <tr><td><?php print '人気No.';
+         <tr><td><?php print '売上';
          if($j==1){
          print_r($j);}elseif($value==$value1&&$j==2){
          print '1';}elseif($value==$value2&&$j==3){
          print '1';}elseif($value1==$value2){
          print '2';}else{
          print_r($j);}
-         print '！';?></tr><td>
-         <tr><td><?php if($value1==0&&$value2==0){
+         print '位！';?></tr><td>
+         <tr><td>
+         <?php
+         print '(注文数:';
+         if($value1==0&&$value2==0){
          print $value;}elseif($value2==0){
-         print $value1;}else{print $value2;}?></tr><td>
+         print $value1;}else{print $value2;}
+         print ')';
+         ?></tr><td>
          </td>
         </table> 
         <td>
@@ -599,17 +608,22 @@ arsort($array01);
 
          print $disp_gazou.'</a><br />'; ?></tr><td>
          <tr><td><?php print $p_name[$key].'';?></tr><td>
-         <tr><td><?php print '人気No.';
+         <tr><td><?php print '売上';
          if($j==1){
          print_r($j);}elseif($value==$value1&&$j==2){
          print '1';}elseif($value==$value2&&$j==3){
          print '1';}elseif($value1==$value2){
          print '2';}else{
          print_r($j);}
-         print '！';?></tr><td>
-         <tr><td><?php if($value1==0&&$value2==0){
+         print '位！';?></tr><td>
+         <tr><td>
+         <?php 
+         print '(注文数:';
+         if($value1==0&&$value2==0){
          print $value;}elseif($value2==0){
-         print $value1;}else{print $value2;}?></tr><td>
+         print $value1;}else{print $value2;}
+         print ')';
+         ?></tr><td>
          </td>
         </table> 
         <td>

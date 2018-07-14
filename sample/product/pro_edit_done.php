@@ -53,24 +53,29 @@ if (DEBUG) {
 	$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 	$dbh = new PDO($dsn, $dbUser, $dbPass);
 	}
+if($pro_gazou_name!='')
+{
 $sql='UPDATE mst_product SET name=?,price=?,gazou=?,syousai=? WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
 $data[]=$pro_gazou_name;
+$data[]=$pro_syousai;
 $data[]=$pro_code;
 $stmt->execute($data);
+}
+else
+{
+$sql='UPDATE mst_product SET name=?,price=?,syousai=? WHERE code=?';
+$stmt=$dbh->prepare($sql);
+$data[]=$pro_name;
+$data[]=$pro_price;
 $data[]=$pro_syousai;
+$data[]=$pro_code;
+$stmt->execute($data);
+}
 
 $dbh=null;
-
-if($pro_gazou_name_old!=$pro_gazou_name)
-{
-	if($pro_gazou_name_old!='')
-	{
-		unlink('./gazou/'.$pro_gazou_name_old);
-	}
-}
 
 print '修正しました。<br />';
 
